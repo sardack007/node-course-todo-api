@@ -63,7 +63,7 @@ app.delete('/todos/:id',(req, res) => {
     return res.status(404).send();
   }
 
-  Todo.findOneAndRemove(id).then((doc) => {
+  Todo.findOneAndRemove({_id: id}).then((doc) => {
     if(doc){
         return res.status(200).send(doc);
     }
