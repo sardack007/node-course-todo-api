@@ -81,11 +81,11 @@ UserSchema.statics.findByToken = function(token) {
      bcrypt.genSalt(10, (err, salt) => {
        bcrypt.hash(user.password, salt, (err, hash) => {
         user.password = hash;
-        next();
+        return next();
        });
      });
    } else {
-     next();
+     return next();
    }
 
  });
